@@ -27,6 +27,9 @@
 	# change paths as needed
 	handle /api* {
 		# this strips the /api/ prefix from the uri sent to the proxy address
+		cache {
+			ttl 3600
+		}
 		reverse_proxy {$BACKEND_HOST} # proxy all requests for /api/* to the backend, configure this variable in the service settings
 	}
 
